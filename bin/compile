@@ -64,6 +64,9 @@ chmod -f +x $dir/bin/{detect,compile,release}
 
 framework=$($dir/bin/detect $1)
 
+echo "~~~~~> Add SOURCE_VERSION to env"
+echo $SOURCE_VERSION > $ENV_DIR/REACT_APP_SOURCE_VERSION
+
 if [ $? == 0 ]; then
   echo "=====> Detected Framework: $framework"
   $dir/bin/compile $BUILD_DIR $CACHE_DIR $ENV_DIR
